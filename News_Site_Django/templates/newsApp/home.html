@@ -1,0 +1,220 @@
+{% extends 'newsApp/index.html' %}
+{% block title %} home {% endblock %}
+{% block content %}
+<style>
+  body {
+    background-color: #dcdcdc;
+  }
+  .card:hover{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+
+  .brecir {
+    border-radius: 50px;
+    height: 50px;
+</style>
+
+<div class="container">
+  <div
+    class="alert alert-warning alert-dismissible fade show mt-2 rounded-5 d-flex align-items-center justify-content-center bg-light brecir"
+    role="alert">
+    <h4 class="text-danger">Breaking News: </h4>
+    <div class="ml-3">
+      <h4>{{breaking}}</h4>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+
+      <div class="col-5">
+        <h3><span class="badge bg-dark">Top Stories</span></h3>
+
+        {% for top in top_stories %}
+        
+        <div class="card mb-3" style="max-width:540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+            <a href="allContant.html"><img src="{{BASE_DIR}}/{{top.news_image}}" class="img-fluid rounded-start" alt="..."></a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">{{top.news_name}}</h5>
+
+                <p class="card-text"><small class="text-muted">{{top.news_updateTime }}</small></p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+
+
+      <div class="col-6" >
+        <h3><span class="badge bg-dark">Breaking</span></h3>
+        <div class="card mb-3">
+
+        
+        <img  src="{{BASE_DIR}}/{{top_stories.0.news_image}}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{top_stories.0.news_name}}</h5>
+
+          <p class="card-text"><small class="text-muted">{{top_stories.0news_updateTime}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+
+        <div class="row">
+          {% for militry in militry %}
+          <div class="card" style="width: 18rem;">
+            <img src="{{BASE_DIR}}/{{militry.news_image}}" class="card-img-top" alt="Para">
+            <div class="card-body">
+              <p class="card-text">{{militry.news_name}}</p>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <div class="row">
+          {% for paramilitry in paramilitry %}
+          <div class="card" style="width: 18rem;">
+            <img src="{{BASE_DIR}}/{{paramilitry.news_image}}" class="card-img-top" alt="Para">
+            <div class="card-body">
+              <p class="card-text">{{paramilitry.news_name}}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+      <div class="carousel-item">
+        <div class="row">
+          {% for navy in navy %}
+          <div class="card" style="width: 18rem;">
+            <img src="{{BASE_DIR}}/{{navy.news_image}}" class="card-img-top" alt="Para">
+            <div class="card-body">
+              <p class="card-text">{{navy.news_name}}</p>
+            </div>
+          </div>
+          {% endfor %}
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container mt-5">
+
+  <div class="row">
+
+    <div class="col-md-6">
+      <h3><span class="badge bg-dark">Latest</span></h3>
+      {% for latest in latest %}
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{BASE_DIR}}/{{latest.news_image}}" class="img-fluid rounded-start"
+              alt="{{BASE_DIR}}/{{big.0.news_image}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+
+
+
+
+    <div class="col-6 col-md-6">
+      <h3><span class="badge bg-dark">Tweeter Tranding</span></h3>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{BASE_DIR}}/{{big.0.news_image}}" class="img-fluid rounded-start"
+              alt="{{BASE_DIR}}/{{big.0.news_image}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{BASE_DIR}}/{{big.0.news_image}}" class="img-fluid rounded-start"
+              alt="{{BASE_DIR}}/{{big.0.news_image}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="{{BASE_DIR}}/{{big.0.news_image}}" class="img-fluid rounded-start"
+              alt="{{BASE_DIR}}/{{big.0.news_image}}">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
